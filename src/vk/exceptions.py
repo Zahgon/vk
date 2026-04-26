@@ -62,16 +62,13 @@ class VkAPIError(VkException):
 
     @staticmethod
     def _get_pretty_request_params(error_data):
-        return {
-            param['key']: param['value']
-            for param in error_data.get('request_params', ())
-        }
+        pass
 
     def is_access_token_incorrect(self):
-        return self.code in (ErrorCodes.AUTHORIZATION_FAILED, ErrorCodes.ACCESS_DENIED)
+        pass
 
     def is_captcha_needed(self):
-        return self.code == ErrorCodes.CAPTCHA_NEEDED
+        pass
 
     def __str__(self):
         error_message = f'{self.code}. {self.message}. request_params = {self.request_params}'
